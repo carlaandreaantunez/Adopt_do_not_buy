@@ -10,7 +10,7 @@ class Adopt {
         this.adopt = false;
     }
 }
-
+//Array con animales
 let pets = [];
 pets.push(new Adopt("Rafa", "rabbit", "5 months", "masculine", "Loves carrots", "rabbit_2.jpg"));
 pets.push(new Adopt("Chicho", "rat", "1 year", "masculine", "Love your spinning wheel", "rat_1.jpg"));
@@ -38,22 +38,27 @@ for (let adopt of pets) {
                         ${adopt.sex}<br>
                         <b>${adopt.age}</b></p><br>
                     </div>`;
-                    }
+}
 
 console.log(information);
 document.getElementById("pets").innerHTML = information;
 
-//Find Method
-let selected_type = prompt("Do you want dog, cat, hedgehog, rat or rabbit?"); 
-let result_type = pets.find((value) => value.type === selected_type);
-console.log(result_type);
+//Find Method (NO era funcional, lo cambie por un filter que hace lo mismo que el search, pero este es por consola)
+//let selected_type = prompt("Do you want female or masculine?"); 
+//let result_type = pets.find((value) => value.type === selected_type);
+//console.log(result_type);
+
+//Filter Method -> para que arme un array y lo muestre por consola
+let value_type = prompt("Do you want female or masculine?");
+let type_result = pets.filter((value) => value.sex.includes(value_type)); //array: {masculine or female}
+console.log(type_result);
 
 alert("Looking for female or masculine?, please go to SEARCH and enter the words -> female or masculine. Thanks a lot"); //ex:female
 
-//Filter Method with Search
+//Filter Method with Search para que me muestre animales por sexo en el html
 document.getElementById("searchButton").onclick = function () {
     let searchValue = document.getElementById("searchInput").value;
-    let result_sex = pets.filter((value) => value.sex.includes(searchValue)); //FEMALE INCLUIA MALE: INCLUDES NO FUNCIONABA -> TUVE QUE PONER "MASCULINE"
+    let result_sex = pets.filter((value) => value.sex.includes(searchValue));
     let resultHtml = "";
 
     console.log(result_sex); //mascota que cumple con la condicion por consola
