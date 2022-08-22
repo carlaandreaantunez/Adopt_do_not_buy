@@ -37,12 +37,7 @@ function obtenerLocalidades() {
         localidades = ["San Rafael", "Malargüe" , "General Alvear"];
     }
 
-    let contenido = "<h3>Localidades:</h3>";
-    contenido += "<ul>";
-
-    for (let localidad of localidades) {
-        contenido += "<li>" + localidad + "</li>";
-    }
+    let contenido = "";
 
     let ciudades = document.getElementById("ciudades");
     ciudades.innerHTML = ""; 
@@ -54,12 +49,11 @@ function obtenerLocalidades() {
         ciudades.appendChild(opcion); 
     }
 
-    contenido += "</ul>";
     document.getElementById("resultado").innerHTML = contenido;
 } 
 
-
-// Eventos del Teclado -> eventoKeyUp & KeyDown
+//CAMBIADO POR LO DE ABAJO (elimimar!!)
+/*// Eventos del Teclado -> eventoKeyUp & KeyDown
 nombre.addEventListener("keyup", controlNombre);
 telefono.addEventListener("keyup", controlTelefono);
 email.addEventListener("keydown", controlEmail);
@@ -112,17 +106,80 @@ function controlDireccion() {
     } else {
         document.getElementById("resultado").innerHTML = "";
     } 
-}
-
-
+}*/
 //Defino el evento Enviar
-let boton = document.getElementById("btnPrincipal");
+/*let boton = document.getElementById("btnPrincipal");
 boton.addEventListener("click", respuestaClick);
 
 
 function respuestaClick() {
     console.log("Enviado");
+}*/
+
+
+//Cambio el evento Enviar de arriba por sweet -> me parece que muestra mejor que el formulario ha sido enviado y sus errores antes de enviarlo.
+function validateForm() {
+    let nombre = document.getElementById("nombre").value;
+    let email = document.getElementById("email").value;
+    let telefono = document.getElementById("telefono").value;
+    let direccion = document.getElementById("direccion").value;
+
+    if (nombre.trim() == "") {
+        displayError("Name");
+        return false;
+    }
+
+    if (email.trim() == "") {
+        displayError("Email");
+        return false;
+    }
+
+    if (telefono.trim() == "") {
+        displayError("Telephone");
+        return false;
+    }
+
+    if (direccion.trim() == "") {
+        displayError("Adress");
+        return false;
+    }
+    
+
+    Swal.fire({
+        title: 'Are the data entered correctly?',
+        text: "'Thank you for being part of this!!',",
+        imageUrl: 'images/logo-dog.png',
+        imageWidth: 50,
+        imageHeight: 50,
+        imageAlt: 'dog',
+        showCancelButton: true,
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            storeData(nombre, email, telefono, direccion);
+            Swal.fire(
+                'Great!',
+                'Form submitted'
+            )
+        }
+    })
 }
 
+function displayError(campo) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Please fill in the: ' + campo
+    })
+}
+
+function storeData(nombre, email, telefono, direccion) {
+    localStorage.setItem("datosFormulario", JSON.stringify({ nombre: nombre, email: email, telefono: telefono, direccion:direccion }));
+}
+
+document.getElementById("boton_enviar").addEventListener("click", validateForm);
 
 

@@ -9,7 +9,7 @@ function renderProductos() {
             <img src="images/${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
             <div class="card-body text-center">
                 <h5 class="card-title">${producto.nombre}</h5>
-                <p class="card-text ">$${producto.precio}</p>
+                <p class="card-text ">$${producto.price}</p>
                 <a href="#" class="btn btn-danger" onclick="agregarProducto(${producto.id})">Agregar (+)</a>
             </div>
         </div>

@@ -10,7 +10,7 @@ class Adopt {
     }
 }
 
-//Array con animales
+//Array Pets
 let pets = [];
 pets.push(new Adopt("Rafa", "rabbit", "5 months", "masculine", "Loves carrots", "rabbit_2.jpg"));
 pets.push(new Adopt("Chicho", "rat", "1 year", "masculine", "Love your spinning wheel", "rat_1.jpg"));
