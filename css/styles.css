@@ -6,9 +6,24 @@
     color: rgb(95, 95, 95);
 }
 
+/*HEADER*/
+.navbar-sticky {
+    z-index: 997;
+    position: sticky;
+    padding: 15px 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+html {
+    height: 100%;
+}
+
+
 .title-adopt {
     text-align: center;
-    color: rgb(7, 83, 83);
+    color: rgb(95, 95, 95);
     padding-bottom: 2%;
     padding-top: 2%;
 }
@@ -46,35 +61,83 @@ body h3 {
     text-align: center;
 }
 
+
+.text-h1:hover {
+    background-color: rgb(42, 165, 95);
+}
+.text-h3:hover {
+    color: rgb(42, 165, 95);
+}
+
+/*section-search*/
+.section-search {
+    padding-top: 50px;
+}
+
 .style-search {
     text-align: center;
     padding-top: 2%;
     padding-bottom: 2%;
 }
 
+
+.btn-backg-color:hover { 
+    background-color: rgb(42, 165, 95);
+}
+
 /*Login*/
 .form-format {
-    background-color: rgb(162, 207, 243); 
     border-radius: 5%; 
     margin: 5%; 
     align-content: center;
 }
 
+.text-login {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    color: rgb(111, 109, 109);
+}
+
+.text-label {
+    color: black;
+}
+
+.background-section {
+    background-image: url("/images/cat_3.jpg");
+    opacity: 80%;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.input-color input, select, textarea {
+    opacity: 0.7;
+}
 
 /*Footer*/
 .container_footer {
-    background-image:linear-gradient(to right, rgba(240, 233, 233, 0.5),rgba(0,0,0,0.500));
-    background-position: center;
+    background-image:linear-gradient(to right, rgba(189, 174, 174, 0.5),rgba(0,0,0,0.500));
     background-repeat: no-repeat;
 }
-
 
 .text-footer {
     text-align: center;   
     color: white;
     font-size: 30px;
+    margin-bottom: 1%;
 }
 
+.text-add {
+    padding-bottom: 1%;
+}
 
+.footer-bottom{
+    width: 100%;
+}
 
+@keyframes mover {
+    0%{
+        transform: translate(100%);
+    }
+}
 

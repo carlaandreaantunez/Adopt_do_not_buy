@@ -1,16 +1,15 @@
-function renderProductos() {
-    const productos = cargarProductosLS(); //me devuelve un array de productos
+function renderProducts() {
+    const products = chargeProductsLS(); 
     let contenido = "";
 
-    productos.forEach((producto) => {
-        //+= -> para ir sumando cada contenido al html, agregamos tb el envento onclick que llame a la funcion -> agregar producto
+    products.forEach((product) => {
         contenido += `<div class="col-md-3">
         <div class="card border border-0">
-            <img src="images/${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+            <img src="images/${product.imagen}" class="card-img-top" alt="${product.nombre}">
             <div class="card-body text-center">
-                <h5 class="card-title">${producto.nombre}</h5>
-                <p class="card-text ">$${producto.price}</p>
-                <a href="#" class="btn btn-danger" onclick="agregarProducto(${producto.id})">Agregar (+)</a>
+                <h5 class="card-title">${product.nombre}</h5>
+                <p class="card-text ">$${product.price}</p>
+                <a href="#" class="btn btn-danger btn-backg-color" onclick="addProduct(${product.id});addCart()">Add (+)</a>
             </div>
         </div>
         </div>`;
@@ -18,9 +17,16 @@ function renderProductos() {
         
     });
 
-document.getElementById("productos").innerHTML = contenido; //llamamos al id del html y lo impactamos en el mismo
+document.getElementById("products").innerHTML = contenido; 
 
 }
 
-renderProductos();
-actualizarBotonCarrito();
+
+renderProducts();
+updateButtonCarrito();
+
+
+
+
+
+

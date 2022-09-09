@@ -43,14 +43,13 @@ for (let adopt of pets) {
 console.log(information);
 document.getElementById("pets").innerHTML = information;
 
-//Filter Method with Search para que me muestre animales por sexo en el html
 document.getElementById("searchButton").onclick = function () {
     let searchValue = document.getElementById("searchInput").value;
-    let result_sex = pets.filter((value) => value.type.includes(searchValue));
+    let result = pets.filter((value) => value.type.includes(searchValue));
     let resultHtml = "";
 
-    console.log(result_sex); //mascota que cumple con la condicion por consola
-    for (let item of result_sex) {
+    console.log(result);
+    for (let item of result) {
         console.log("Pet's Name: " + item.name + ", Type: " + item.type + ", Age: " + item.age + " , Sex: " + item.sex + ", Hobbies: " + item.hobbies + ".");
         resultHtml += `<div class="container">
                             <div class="card">
@@ -60,16 +59,25 @@ document.getElementById("searchButton").onclick = function () {
                                     <p class="card-text">${item.hobbies}</p>
                                     <p class="card-text">${item.sex}</p>
                                     <p class="card-text">${item.age}</p>
+                                    <a href="#" class="btn btn-danger btn-backg-color" title="button-adopt">Whatsapp</a>
                                 </div>
                             </div>
                         </div>`;
     }
 
 
-    document.getElementById("pets").innerHTML = ''; //PORQUE QUIERO QUE ME MUESTRE LOS QUE CUMPLEN CON LA CONDICION
+    document.getElementById("pets").innerHTML = '';
     document.getElementById("pets").innerHTML = resultHtml;
 }
 
 
-guardarProductosLS(productos);
-renderProductos();
+window.addEventListener('scroll', function() {
+    let animateImg = this.document.getElementById('pets');
+    let positionImg = animateImg.getBoundingClientRect().top;
+    console.log(positionImg);
+    let screenSize = window.innerHeight/4;
+
+    if(positionImg < screenSize) {
+        animateImg.style.animation = 'mover 0.5s ease-out'
+    }
+})
