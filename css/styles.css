@@ -103,7 +103,7 @@ body h3 {
 }
 
 .background-section {
-    background-image: url("/images/cat_3.jpg");
+    background-image: url(/images/cat_3.jpg);
     opacity: 80%;
     background-position: center;
     background-size: cover;
